@@ -42,7 +42,7 @@ export default function DashboardLayout({
             <div className="flex-1 flex flex-col">
                 <TopNav />
 
-                <main className="flex-1 p-6 bg-gradient-to-br from-pink-50 via-white to-blue-50 overflow-auto">
+                <main className="flex-1 bg-gray-50/60 overflow-auto">
                     {children}
                 </main>
             </div>
