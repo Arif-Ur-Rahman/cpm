@@ -1,34 +1,30 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import { Toaster } from "sonner";
-import { AuthProvider } from "@/contexts/AuthContext";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Navbar from '@/components/website/components/Navbar'
+import { AuthProvider } from '@/contexts/AuthContext'
 
-const poppins = Poppins({
-    weight: ["300", "400", "500", "600", "700"],
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-poppins",
-});
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: "Rfix - Issue Tracking System",
-    description: "Rfix - Role-based issue tracking and management system",
-};
+  title: 'CPM - Beauty Product Lifecycle Tracker',
+  description: 'A custom web-based ERP/PLM system for beauty product development lifecycle management',
+}
+
 
 export default function RootLayout({
-    children,
-}: Readonly<{
-    children: React.ReactNode;
-}>) {
-    return (
-        <html lang="en">
-            <body className={`${poppins.variable} font-sans antialiased`}>
-                <AuthProvider>
-                    {children}
-                    <Toaster position="top-right" richColors closeButton />
-                </AuthProvider>
-            </body>
-        </html>
-    );
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <AuthProvider>
+          <Navbar />
+          {children}
+        </AuthProvider>
+      </body>
+    </html>
+  )
 }
